@@ -1,4 +1,4 @@
-package com.example.CardGame;
+package com.example.CardGame.model;
 
 public class Card {
     private Suit suit;
