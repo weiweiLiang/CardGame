@@ -3,7 +3,7 @@
 Simple Card Game project by using REST API and spring boot. 
 
 
-The service should be run in the localhost : http://localhost:8080/api/card-game 
+The service should be run on the localhost : http://localhost:8080/api/card-game 
 
 Create a game: 
 http://localhost:8080/api/card-game/new
