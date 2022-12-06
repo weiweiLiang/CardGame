@@ -10,9 +10,9 @@ public class Game {
     private List<Player> players;
 
     public Game() {
-        this.setGameId(UUID.randomUUID().toString());
-        gameDeck = new GameDeck();
-        players = new ArrayList<Player>();
+        this.gameId = UUID.randomUUID().toString();
+        this.gameDeck = new GameDeck();
+        this.players = new ArrayList<Player>();
     }
 
     public String getGameId() {

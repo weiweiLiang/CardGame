@@ -40,8 +40,8 @@ public class Card implements Comparable<Card> {
 
     @Override
     public int compareTo(Card anotherCard) {
-        int compareFace = Integer.compare(this.getFaceValue().getValue(), anotherCard.getFaceValue().getValue());
-        return compareFace != 0 ? compareFace
-                : Integer.compare(this.getSuit().getValue(), anotherCard.getSuit().getValue());
+        int compareSuit = Integer.compare(this.getSuit().getValue(), anotherCard.getSuit().getValue());
+        return compareSuit != 0 ? compareSuit
+                : Integer.compare(this.getFaceValue().getValue(), anotherCard.getFaceValue().getValue());
     }
 }

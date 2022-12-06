@@ -11,7 +11,7 @@ public class Deck {
 
     public Deck() {
         this.deckId = UUID.randomUUID().toString();
-        this.cards = createCards();
+        this.cards = setCards();
     }
 
     public String getDeckId() {
@@ -26,7 +26,7 @@ public class Deck {
         return cards;
     }
 
-    private Stack<Card> createCards() {
+    private Stack<Card> setCards() {
         Stack<Card> cards = new Stack<Card>();
         for(Suit suit : Suit.values()) {
             for (FaceValue face : FaceValue.values()) {
