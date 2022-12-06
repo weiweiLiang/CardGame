@@ -40,3 +40,12 @@ http://localhost:8080/api/card-game/undealtCards
 
 Shuffle deck:
 http://localhost:8080/api/card-game/shuffle
+
+
+The code base was simply tested by using postman and the localhost running in google chrome, some response of the rest requests throw errors. 
+
+What needs to be done: 
+1. Unit tests. 
+2. Need to think about how to apply DataBase to store each game.
+3. Optimize the project. 
+
