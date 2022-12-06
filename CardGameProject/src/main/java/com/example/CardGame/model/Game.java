@@ -15,6 +15,12 @@ public class Game {
         this.players = new ArrayList<Player>();
     }
 
+    public Game(String gameId, GameDeck gameDeck, List<Player> players) {
+        this.gameId = gameId;
+        this.gameDeck = gameDeck;
+        this.players = players;
+    }
+
     public String getGameId() {
         return gameId;
     }

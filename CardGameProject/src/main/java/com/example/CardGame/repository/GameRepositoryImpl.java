@@ -74,7 +74,15 @@ public class GameRepositoryImpl implements GameRepository{
         if(numberOfCards <= 0){
             throw new Exception("There is not card left to deal.");
         }
-        //TODO : to be implemented
+
+        if(canDealCards(game)){
+            for(int i = 0; i < numberOfCards; i++){
+                game.getPlayers().forEach(player -> {
+                    Optional<Card> cardToDeal = getCardToDeal(game);
+                    cardToDeal.ifPresent(card -> player.getCards().add(card));
+                });
+            }
+        }
 
     }
 

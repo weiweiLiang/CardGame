@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping(path = "api/game")
+@RequestMapping(path = "api/card-game")
 public class GameController {
 
     private GameRepository gameRepository;
@@ -50,5 +50,29 @@ public class GameController {
         return gameRepository.getCountOfEachUndealtCard(gameId);
     }
 
+    @PostMapping(path = "/{gameid}/deck/add/{deckid}")
+    void addDeck(@PathVariable("gameid") String gameId, @PathVariable("deckid") String deckId) throws Exception {
+        gameRepository.addDeckToGameDeck(gameId, deckId);
+    }
+
+    @PostMapping(path = "/{gameid}/player/add/{playerid}")
+    void addPlayer(@PathVariable("gameid") String gameId, @PathVariable("playerid") String playerId) throws Exception {
+        gameRepository.addPlayer(gameId, playerId);
+    }
+
+    @PostMapping(path = "/{gameid}/shuffle")
+    void shuffle(@PathVariable("gameid") String gameId) throws Exception {
+        gameRepository.shuffle(gameId);
+    }
+
+    @DeleteMapping(path = "/delete")
+    void deleteGame(String gameId) throws Exception {
+        gameRepository.deleteGame(gameId);
+    }
+
+    @DeleteMapping(path = "/player/delete")
+    void deletePlayer(String gameId, String playerId) throws Exception {
+        gameRepository.removePlayer(gameId,playerId);
+    }
 
 }
