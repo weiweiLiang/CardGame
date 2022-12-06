@@ -1,8 +1,6 @@
 package com.example.CardGame.controller;
 
-import com.example.CardGame.model.Card;
-import com.example.CardGame.model.Player;
-import com.example.CardGame.model.Suit;
+import com.example.CardGame.model.*;
 import com.example.CardGame.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +19,12 @@ public class GameController {
     }
 
     @GetMapping(path = "/new")
-    String createGame() {
+    Game createGame() {
         return gameRepository.createGame();
     }
 
     @GetMapping(path = "/deck/new")
-    String createDeck(){
+    Deck createDeck(){
         return gameRepository.createDeck();
     }
 
