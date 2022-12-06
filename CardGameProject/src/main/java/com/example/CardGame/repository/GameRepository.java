@@ -8,9 +8,9 @@ import java.util.Map;
 
 @Repository
 public interface GameRepository {
-    String createGame();
+    Game createGame();
     void deleteGame(String gameId) throws Exception;
-    String createDeck();
+    Deck createDeck();
     void addDeckToGameDeck(String gameId, String deckId) throws Exception;
     void addPlayer(String gameId, String playerId) throws Exception;
     void removePlayer(String gameId, String playerId) throws Exception;

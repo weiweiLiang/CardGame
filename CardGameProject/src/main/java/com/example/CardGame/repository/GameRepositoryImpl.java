@@ -11,30 +11,23 @@ public class GameRepositoryImpl implements GameRepository{
     private Map<String, Game> gameMap = new HashMap<>();
     private Map<String, Deck> deckMap = new HashMap<>();
     @Override
-    public String createGame() {
+    public Game createGame() {
         Game game = new Game();
         gameMap.put(game.getGameId(), game);
-        //TODO: remove this output
-        System.out.println("create game.");
-        return game.getGameId();
+        return game;
     }
 
     @Override
     public void deleteGame(String gameId) throws Exception {
         Game game = Optional.ofNullable(gameMap.get(gameId)).orElseThrow(() ->new Exception("Game is not found"));
         this.gameMap.remove(game.getGameId());
-        //TODO: remove this output
-        System.out.println("Game deleted.");
-
     }
 
     @Override
-    public String createDeck() {
+    public Deck createDeck() {
         Deck deck = new Deck();
         deckMap.put(deck.getDeckId(), deck);
-        //TODO: remove this output
-        System.out.println("create deck.");
-        return deck.getDeckId();
+        return deck;
     }
 
     @Override
@@ -42,8 +35,6 @@ public class GameRepositoryImpl implements GameRepository{
         Game game = Optional.ofNullable(gameMap.get(gameId)).orElseThrow(() ->new Exception("Game is not found"));
         Deck deck = Optional.ofNullable(deckMap.get(deckId)).orElseThrow(() -> new Exception("Deck is not found."));
         game.getGameDeck().getCards().addAll(deck.getCards());
-        //TODO: remove this output
-        System.out.println("Deck is added to game deck.");
     }
 
     @Override
@@ -56,8 +47,6 @@ public class GameRepositoryImpl implements GameRepository{
         } else {
             game.getPlayers().add(new Player(playerId));
         }
-        //TODO: remove this output
-        System.out.println("Player added.");
     }
 
     @Override
@@ -92,8 +81,6 @@ public class GameRepositoryImpl implements GameRepository{
         Player player = game.getPlayers().stream().filter(p -> playerId.equals(p.getPlayerId()))
                             .findAny().orElseThrow(() -> new Exception("player is not found"));
 
-        //TODO: to remove
-        System.out.println("list of cards");
         return player.getCards();
     }
 
@@ -103,8 +90,6 @@ public class GameRepositoryImpl implements GameRepository{
         List<Player> players = game.getPlayers();
         //sort the list in descending order (default order)
         Collections.sort(players);
-        //TODO: to remove
-        System.out.println("list of players");
         return players;
     }
 
@@ -119,8 +104,6 @@ public class GameRepositoryImpl implements GameRepository{
                 countPerSuit.put(card.getSuit(), countPerSuit.get(card.getSuit())+1);
             }
         }
-        //TODO: to remove
-        System.out.println("count per suit");
         return countPerSuit;
     }
 
@@ -136,8 +119,6 @@ public class GameRepositoryImpl implements GameRepository{
             }
         }
         Map<Card, Integer> sortedMap = new TreeMap<>(countOfCard);
-        //TODO: to remove
-        System.out.println("count of undealt card");
         return sortedMap;
     }
 
@@ -153,8 +134,6 @@ public class GameRepositoryImpl implements GameRepository{
 
             game.getGameDeck().getCards().set(i, cardToReplace);
             game.getGameDeck().getCards().set(index, cardToBeReplaced);
-            //TODO: to remove
-            System.out.println("Shuffled.");
         }
     }
 
