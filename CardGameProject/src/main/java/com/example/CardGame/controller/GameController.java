@@ -33,6 +33,11 @@ public class GameController {
         return gameRepository.getListOfPlayerWithTotalValue(gameId);
     }
 
+    @GetMapping(path = "/deal")
+    void dealCards(String gameId, int numberOfCards) throws Exception {
+        gameRepository.dealCardsForAPlayer(gameId, numberOfCards);
+    }
+
     @GetMapping(path = "/player/cards")
     List<Card> getListOfCardsForAPlayer(String gameId, String playerId) throws Exception {
         return gameRepository.getListOfCardsForAPlayer(gameId, playerId);
